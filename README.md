@@ -1,4 +1,4 @@
-# To-Do's Advanced App
+# Task Manager(To-Do's Advanced App)
 
 ## Available Scripts
 
