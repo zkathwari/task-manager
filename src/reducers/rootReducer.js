@@ -12,6 +12,6 @@ const rootReducer = combineReducers({
 
 const rootReducerName = "rootReducer";
 export const finalReducer = persistentDocumentReducer(
-  db("testdb"),
+  db("TaskManagerDB"),
   rootReducerName
 )(rootReducer);

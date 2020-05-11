@@ -2,16 +2,21 @@
   display: inline-block;
   vertical-align: top;
   margin-right: 5px;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
   padding-left: 5px;
   padding-top: 0;
   width: 230px;
-  text-align: center;
+
+  &__title {
+    text-transform: uppercase;
+    font-size: 18px;
+    text-align: center;
+  }
 
   &--bg-color-first {
-    background-color: #d3d3d3;
+    background-color: #d3d3d387;
   }
   &--bg-color-second {
-    background-color: #f0eeee;
+    background-color: #d3d3d35e;
   }
 }

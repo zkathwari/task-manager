@@ -68,7 +68,7 @@ const TaskColumn = ({
         setMouseIsHovering(false);
       }}
     >
-      <h4>
+      <h4 className='task-column__title '>
         {name} ({todos.length})
       </h4>
       {generateTaskCards()}
@@ -79,6 +79,9 @@ const TaskColumn = ({
             setValue={(e) => setCardName(e.target.value)}
             handleAdd={handleSaveCard}
             buttonText={"Save"}
+            cancelButtonText={"Cancel"}
+            cancelButton={() => setShowPrompt(false)}
+            placeHolder={"Add card discription"}
           />
         )}
         <button className='button' onClick={() => setShowPrompt(true)}>

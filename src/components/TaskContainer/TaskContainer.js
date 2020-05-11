@@ -7,7 +7,7 @@ import "./TaskContainer.scss";
 const TaskContainer = () => {
   return (
     <div className='task-container'>
-      <h1>Task Manager Board</h1>
+      <h1 className='task-container__title '>Task Manager&copy;</h1>
       <TaskBoard />
     </div>
   );

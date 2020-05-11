@@ -1,5 +1,13 @@
 .task-container {
   padding: 30px;
-  padding-top: 5px;
-  max-width: 900px;
+  padding-top: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+  font-family: arial, sans-serif;
+
+  &__title {
+    font-size: 40px;
+    text-align: center;
+    font-family: sans-serif;
+  }
 }

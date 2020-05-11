@@ -109,6 +109,10 @@ const TaskBoard = () => {
           setValue={(e) => setListName(e.target.value)}
           handleAdd={handleAddColumn}
           buttonText={"Add"}
+          cancelButtonText={"Cancel"}
+          isListName={true}
+          placeHolder={"Add List Name"}
+          cancelButton={() => setShowPrompt(false)}
         />
       )}
     </div>

@@ -2,9 +2,19 @@
   &__wrapper {
     display: flex;
     align-items: center;
+    justify-content: center;
     box-shadow: rgb(204, 204, 204) 0 0 12px 0;
     font-size: small;
     padding: 2px;
+    border-radius: 5px;
+    margin: 0 auto;
+    width: 95%;
+  }
+
+  &__message {
+    color: red;
+    font-size: 14px;
+    margin-right: 5px;
   }
 
   &__button {

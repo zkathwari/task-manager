@@ -17,7 +17,7 @@ const TaskCard = ({ todo, onDragEnd, deleteCard }) => {
     >
       {!confirm && (
         <button className='task-card__button' onClick={() => setConfirm(true)}>
-          &#10007; Delete
+          &#10006;
         </button>
       )}
       {confirm && (
@@ -27,7 +27,7 @@ const TaskCard = ({ todo, onDragEnd, deleteCard }) => {
         />
       )}
       <div>
-        <h4>{todo.name}</h4>
+        <p className='task-card__name'>{todo.name}</p>
       </div>
     </div>
   );
