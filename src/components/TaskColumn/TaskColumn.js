@@ -1,24 +1,32 @@
-/*
- * The TaskContainer Board Column React Hook
- */
+// The Task Column React Hook
+
 import React, { useState, Fragment } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import TaskCard from "../TaskCard";
+import PromptInput from "../PromptInput/PromptInput";
+import "./TaskColumn.scss";
+import "../TaskContainer/Button.scss";
 
-const TaskColumn = (props) => {
-  const { todos, onDragEnd, onDragEnter, stage, name, addNewCard } = props;
+const TaskColumn = ({
+  todos,
+  onDragEnd,
+  onDragEnter,
+  stage,
+  name,
+  addNewCard,
+}) => {
   const [mouseIsHovering, setMouseIsHovering] = useState(false);
   const [cardName, setCardName] = useState("");
   const [showPrompt, setShowPrompt] = useState(false);
-  const { todoList } = useSelector((state) => ({ ...state.todoReducer }));
+  const { todoList } = useSelector((state) => ({ ...state.todosReducer }));
   const dispatch = useDispatch();
 
   function generateTaskCards() {
-    return todos.slice(0).map((project) => {
+    return todos.slice(0).map((todo) => {
       return (
         <TaskCard
-          project={project}
-          key={project.name}
+          todo={todo}
+          key={todo.name}
           onDragEnd={onDragEnd}
           deleteCard={handleDeleteCard}
         />
@@ -26,15 +34,13 @@ const TaskColumn = (props) => {
     });
   }
 
-  function handleDeleteCard(e, project) {
+  function handleDeleteCard(e, todo) {
     dispatch({
       type: "DELETE_CARD",
       payload: todoList.filter((value) => {
-        return value.name !== project.name;
+        return value.name !== todo.name;
       }),
     });
-
-    console.log("e, project, modifiedTodos", e, project);
   }
 
   function handleSaveCard() {
@@ -47,45 +53,13 @@ const TaskColumn = (props) => {
     setCardName("");
   }
 
-  // column style
-  const columnStyle = {
-    display: "inline-block",
-    verticalAlign: "top",
-    marginRight: "5px",
-    marginBottom: "5px",
-    paddingLeft: "5px",
-    paddingTop: "0px",
-    width: "230px",
-    textAlign: "center",
-    backgroundColor: mouseIsHovering ? "#d3d3d3" : "#f0eeee",
-  };
-  // button style
-  const buttonStyle = {
-    backgroundColor: "transparent",
-    border: "none",
-    padding: "0 !important",
-    fontSize: "20px",
-    fontFamily: "arial, sans-serif",
-    color: "#069",
-    textDecoration: "none",
-    cursor: "pointer",
-    margin: "15px 0",
-  };
-  //promt elements container
-  const promptContainer = {
-    borderTop: "2px solid #ffffff",
-    borderBottom: "2px solid #ffffff",
-  };
-  //prompt text area
-  const promptTextArea = {
-    width: "200px",
-    marginTop: "10px",
-    height: "60px",
-  };
-
   return (
     <div
-      style={columnStyle}
+      className={`task-column ${
+        mouseIsHovering
+          ? "task-column--bg-color-first"
+          : "task-column--bg-color-second"
+      }`}
       onDragEnter={(e) => {
         setMouseIsHovering(true);
         onDragEnter(e, stage);
@@ -95,24 +69,19 @@ const TaskColumn = (props) => {
       }}
     >
       <h4>
-        {stage}. {name} ({todos.length})
+        {name} ({todos.length})
       </h4>
       {generateTaskCards()}
       <br />
       <Fragment>
         {showPrompt && (
-          <div style={promptContainer}>
-            <textarea
-              style={promptTextArea}
-              onChange={(e) => setCardName(e.target.value)}
-              placeholder='Enter name for this card'
-            ></textarea>
-            <button style={buttonStyle} onClick={handleSaveCard}>
-              Save
-            </button>
-          </div>
+          <PromptInput
+            setValue={(e) => setCardName(e.target.value)}
+            handleAdd={handleSaveCard}
+            buttonText={"Save"}
+          />
         )}
-        <button style={buttonStyle} onClick={() => setShowPrompt(true)}>
+        <button className='button' onClick={() => setShowPrompt(true)}>
           + Add a card
         </button>
       </Fragment>

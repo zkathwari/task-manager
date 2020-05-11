@@ -1,20 +1,13 @@
+// Task Container React Hook
+
 import React from "react";
 import TaskBoard from "../TaskBoard";
-import "./TaskContainer.css";
-
-/*
- * The TaskContainer React Hook
- */
+import "./TaskContainer.scss";
 
 const TaskContainer = () => {
-  const style = {
-    padding: "30px",
-    paddingTop: "5px",
-  };
-
   return (
-    <div style={style}>
-      <h1>To-do Task Container Board</h1>
+    <div className='task-container'>
+      <h1>Task Manager Board</h1>
       <TaskBoard />
     </div>
   );

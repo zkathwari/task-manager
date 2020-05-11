@@ -1,0 +1,13 @@
+.confirmation {
+  &__wrapper {
+    display: flex;
+    align-items: center;
+    box-shadow: rgb(204, 204, 204) 0 0 12px 0;
+    font-size: small;
+    padding: 2px;
+  }
+
+  &__button {
+    border-radius: 5px;
+  }
+}

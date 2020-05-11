@@ -1,7 +1,7 @@
 import { todoList } from "../data/todoList";
 //todosReducer
 
-export function todosReducer(state = { todoList }, action) {
+export const todosReducer = (state = { todoList }, action) => {
   switch (action.type) {
     case "ADD_CARD":
       return {
@@ -11,9 +11,11 @@ export function todosReducer(state = { todoList }, action) {
           action.payload.name !== "" && action.payload,
         ],
       };
+    case "UPDATE_CARD":
+      return { ...state, todoList: [...state.todoList, action.payload] };
     case "DELETE_CARD":
       return { ...state, todoList: action.payload };
     default:
       return state;
   }
-}
+};

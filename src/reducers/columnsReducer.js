@@ -1,7 +1,7 @@
 // todoColumnReducer
 import { columns } from "../data/todoColumns";
 
-export function columnsReducer(state = { columns }, action) {
+export const columnsReducer = (state = { columns }, action) => {
   switch (action.type) {
     case "ADD_COLUMN":
       return {
@@ -14,4 +14,4 @@ export function columnsReducer(state = { columns }, action) {
     default:
       return state;
   }
-}
+};

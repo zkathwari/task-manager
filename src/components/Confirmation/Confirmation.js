@@ -1,30 +1,16 @@
-/*
- * The TaskBoard Confirmation Hook
- */
+// Confirmation component React Hook
+
 import React from "react";
+import "./Confirmation.scss";
 
-export const Confirmation = (props) => {
-  const { remove, cancel } = props;
-
-  const confirmationWrapper = {
-    display: "flex",
-    alignItems: "center",
-    boxShadow: "rgb(204, 204, 204) 0 0 12px 0",
-    fontSize: "small",
-    padding: "2px",
-  };
-
-  const confirmationButton = {
-    borderRadius: "5px",
-  };
-
+export const Confirmation = ({ remove, cancel }) => {
   return (
-    <div style={confirmationWrapper}>
+    <div className='confirmation__wrapper'>
       <h4>Do you really want to remove?</h4>
-      <button style={confirmationButton} onClick={remove}>
+      <button className='confirmation__button' onClick={remove}>
         Yes
       </button>
-      <button style={confirmationButton} onClick={cancel}>
+      <button className='confirmation__button' onClick={cancel}>
         Cancel
       </button>
     </div>

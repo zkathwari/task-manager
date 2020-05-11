@@ -1,7 +1,10 @@
 import { createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 //reducers
-import { rootReducer } from "../reducers/rootReducer";
+import { finalReducer } from "../reducers";
+
+import { persistStore } from "redux-pouchdb";
 
 // store
-export const store = createStore(rootReducer, composeWithDevTools());
+export const store = createStore(finalReducer, composeWithDevTools());
+persistStore(store);
