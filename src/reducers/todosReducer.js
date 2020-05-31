@@ -15,7 +15,7 @@ export const todosReducer = (state = { todoList }, action) => {
         todoList: action.payload,
       };
     case "DELETE_CARD":
-      return { ...state, todoList: action.payload };
+      return { todoList: action.payload };
     default:
       return state;
   }
