@@ -8,3 +8,5 @@ import { persistStore } from "redux-pouchdb";
 // store
 export const store = createStore(finalReducer, composeWithDevTools());
 persistStore(store);
+
+//WIP: TBC: Persist store on UPDATE_CARD
