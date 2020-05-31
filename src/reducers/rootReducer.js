@@ -10,8 +10,9 @@ const rootReducer = combineReducers({
   columnsReducer,
 });
 
-const rootReducerName = "rootReducer";
+const reducerName = "rootReducer";
+
 export const finalReducer = persistentDocumentReducer(
   db("TaskManagerDB"),
-  rootReducerName
+  reducerName
 )(rootReducer);
